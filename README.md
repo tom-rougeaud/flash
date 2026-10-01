@@ -19,7 +19,7 @@
 
 ## En bref
 
-Le prof choisit des notions, vérifie les questions générées puis ouvre une salle. Les élèves rejoignent la partie sur leur téléphone avec un **code à 4 caractères** (ou un QR code) et un **pseudo**. Les réponses restent cachées au tableau jusqu’à la correction, puis les scores, les animations et le podium s’affichent.
+Le prof choisit des notions, vérifie les questions générées puis ouvre une salle. Les élèves rejoignent la partie sur leur téléphone avec un **code à 4 caractères** (ou un QR code) et leur **prénom** (ou un pseudo au hasard). Les règles du mode s’affichent, puis les questions. Les réponses restent cachées au tableau jusqu’à la correction, puis les scores, les animations et le podium s’affichent.
 
 <p align="center">
   <img src="readme-prof.png" alt="Espace prof : aperçu modifiable des questions après « Générer »" width="820">
@@ -33,11 +33,16 @@ Le prof choisit des notions, vérifie les questions générées puis ouvre une s
 **Côté prof**
 - Notions classées par **niveau** (3ᵉ PM, CAP, 2nde, 1ʳᵉ, Tle) puis par chapitre, avec une recherche par mot-clé.
 - **Surprends-moi** : quelques notions tirées au sort dans le niveau choisi.
-- Bouton **Générer** : on voit toutes les questions avant de jouer et on les modifie d’un clic (texte, réponses, temps, explication). On peut aussi les réordonner par glisser-déposer ou faire un nouveau tirage.
+- Bouton **Générer** : on voit toutes les questions avant de jouer (réponses masquées par défaut pour pouvoir projeter) et on les modifie d’un clic. On peut aussi les réordonner par glisser-déposer ou faire un nouveau tirage.
+- Deux parties de suite sur le même thème ne reprennent pas les mêmes questions.
 - **Import de questions** par simple texte : un `*` devant la bonne réponse, `= 4,5` pour une saisie libre.
 - Temps de réponse : automatique, 15 s, 30 s, 1, 2 ou 5 min, ou un temps propre à chaque notion.
-- En jeu : **+30 s**, **Corriger maintenant**, **Écourter** (passe directement au podium).
-- En fin de partie : bilan par élève et par question, exports CSV, historique.
+- En jeu : **+30 s**, **Corriger maintenant**, **Écourter** (passe directement au podium), enchaînement automatique (10 s).
+- Après chaque question : qui a répondu juste, faux, ou pas répondu.
+- Fenêtre **Joueurs** : renommer un élève, l’exclure, faire entrer un retardataire (QR code).
+- Alerte quand un élève quitte la page du jeu (sans savoir où il est allé).
+- Réglages « Formats variés » et « Calculs longs en estimation », bouton **Passer en estimation** sur toute question numérique.
+- En fin de partie : diagnostic des erreurs types, bilan par élève et par question, exports CSV, historique.
 - Affichage **Projection** ou **Mobile**, et zoom **A− / A+** toujours visible.
 
 **Trois modes de jeu**
@@ -45,16 +50,18 @@ Le prof choisit des notions, vérifie les questions générées puis ouvre une s
 |---|---|---|
 | **Un contre tous** | Chacun joue pour soi | Top 5 en direct, podium des 3 meilleurs |
 | **Duel d’équipes** | Les élèves glissent leur pseudo dans une équipe ; le prof peut renommer les équipes | Course de fusées, podium des équipes |
-| **La Classe VS le Prof** | Les bonnes réponses blessent le prof, les erreurs blessent la classe | Combat illustré avec barres de vie |
+| **La Classe VS le Prof** | Les bonnes réponses blessent le prof, les erreurs blessent la classe ; le prof peut jouer depuis son téléphone | Combat illustré avec barres de vie |
 
 **Côté élève**
-- Connexion très simple : code, pseudo personnalisé (les pseudos grossiers sont refusés), et c’est parti.
+- Connexion très simple : code, prénom (ou pseudo au hasard), et c’est parti. Les noms grossiers sont refusés.
 - QCM, Vrai/Faux, **saisie libre avec clavier virtuel** (chiffres, virgule, signe moins, %, et x pour le calcul littéral).
+- **Tuiles à associer** (calcul ↔ résultat…), **remise en ordre**, **estimation au curseur** (ordre de grandeur, points partiels dans la zone « presque »), **étape fausse** à trouver, **figures** (triangles, Thalès, repère, diagrammes, tableaux, programmes Python).
+- Après une erreur, l’élève voit l’**erreur type** probable ; son carnet liste les notions **à revoir** et l’entraînement les lui repropose.
 - Toutes les écritures équivalentes sont acceptées : `4,5` = `4,50` = `450 %` = `9/2`, et `3x + 2` = `2 + 3x`.
 - Effets visuels : « Éclair ! », « Sur le fil ! », confettis, séries.
 - **Entraînement seul**, hors connexion, avec une difficulté qui s’adapte, plus un **carnet** de points, paliers et badges.
 
-**Contenu** : 88 notions, des familles de questions à valeurs aléatoires (dont les mauvaises réponses correspondent à des erreurs fréquentes) et des questions de cours. Les formules sont écrites avec KaTeX.
+**Contenu** : 145 notions (dont 294 questions de cours), avec plusieurs angles par notion : calcul direct ou inverse, choix de l’opération, pièges classiques, problèmes des métiers, lecture de documents, algorithmique. Chaque mauvaise réponse correspond à une erreur type, et le prof obtient en fin de partie un **diagnostic** : erreurs les plus fréquentes et réussite par notion. Les formules sont écrites avec KaTeX.
 
 ## Installation (15 minutes, une seule fois)
 
@@ -65,7 +72,7 @@ L’application est faite de pages statiques hébergées sur **GitHub Pages**. E
 3. **GitHub Pages** : déposez les fichiers à la racine de ce dépôt, puis *Settings → Pages → Deploy from a branch → main / (root)*.
 4. **Vérification** : ouvrez `prof.html`, puis menu ☰ → *Diagnostic de la base*. Les trois lignes doivent être vertes.
 
-Le pas à pas détaillé, avec le dépannage, se trouve dans **`Notice_installation_Flash_Maths_v3.pdf`**.
+Le pas à pas détaillé, avec le dépannage, se trouve dans la notice PDF fournie avec l’application (à garder pour vous, ne la publiez pas ici).
 
 ### Fichiers du dépôt
 
@@ -87,8 +94,8 @@ Le fichier `flash_maths.sql` n’a pas besoin d’être en ligne : il se colle u
 
 ## Confidentialité
 
-- **Aucun compte, aucun nom, aucun cookie, aucune publicité, aucun traceur.** Polices, formules et bibliothèques sont intégrées aux pages : aucun appel à un site extérieur, hormis votre propre base Supabase.
-- La base ne garde que les codes de salle et les **pseudos** (effacés 4 h après la dernière activité). Elle garde aussi un **bilan pseudonyme** des parties pendant **30 jours**, rattaché à une « clé enseignant » enregistrée sous forme hachée.
+- **Aucun compte, aucun nom de famille, aucun cookie, aucune publicité, aucun traceur.** Polices, formules et bibliothèques sont intégrées aux pages : aucun appel à un site extérieur, hormis votre propre base Supabase.
+- La base ne garde que les codes de salle et les **prénoms ou pseudos** (effacés 4 h après la dernière activité). Elle garde aussi un **bilan** des parties pendant **30 jours**, rattaché à une « clé enseignant » enregistrée sous forme hachée.
 - Les réponses circulent en direct vers le prof et ne sont jamais enregistrées. Le carnet de l’élève et les questions du prof restent dans le navigateur de l’appareil.
 - Détails : page [Confidentialité](https://VOTRE-IDENTIFIANT.github.io/flash-maths/confidentialite.html) de l’application.
 
