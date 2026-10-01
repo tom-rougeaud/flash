@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <a href="https://VOTRE-IDENTIFIANT.github.io/flash-maths/"><b>▶ Ouvrir l’application</b></a> ·
-  <a href="https://VOTRE-IDENTIFIANT.github.io/flash-maths/prof.html">Espace prof</a> ·
-  <a href="https://VOTRE-IDENTIFIANT.github.io/flash-maths/eleve.html">Espace élève</a>
+  <a href="https://tom-rougeaud.github.io/flash/"><b>▶ Ouvrir l’application</b></a> ·
+  <a href="https://tom-rougeaud.github.io/flash/prof.html">Espace prof</a> ·
+  <a href="https://tom-rougeaud.github.io/flash/eleve.html">Espace élève</a>
 </p>
 
 ---
