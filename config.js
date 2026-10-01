@@ -9,6 +9,6 @@
    Ne collez JAMAIS la clé « service_role » ni une clé « secret ».
 ═══════════════════════════════════════════════════════════════ */
 var FLASH_CONFIG = {
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: ""
+  SUPABASE_URL: "https://zfqzvwpjxmrlctxsmxch.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_21JhJbzpINsSzFdD0oGqUw_BL_AtgSA"
 };
